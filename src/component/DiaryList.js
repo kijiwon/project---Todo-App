@@ -1,6 +1,6 @@
 import React from "react";
 import DiaryItem from "./DiaryItem";
-function DiaryList ({data, onDelete}) {
+function DiaryList ({data, onDelete,onEdit}) {
 
     return(
         <div className="diaryList">
@@ -13,6 +13,7 @@ function DiaryList ({data, onDelete}) {
                             mood={el.mood}
                             content={el.content}
                             onDelete={onDelete}
+                            onEdit={onEdit}
                         />
             })}
         </div>

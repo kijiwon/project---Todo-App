@@ -50,6 +50,15 @@ function Diary () {
       setData(newDiaryList)
     }
   
+    // 수정 완료 기능 -> data에 저장해야 하므로 상위 컴포넌트에서 생성
+    const onEdit =(targetId, newContent)=>{
+        // id가 일치하는 item의 content를 변경
+        setData(
+            data.map((item)=>item.id===targetId ? 
+                {...item, content:newContent}
+                : item)
+        )
+    }
     return (
         <div className="diary-copo">
             <h1>How do you feel?</h1>
@@ -72,7 +81,7 @@ function Diary () {
 
             />
             <button onClick={submitDiary}>저장하기</button>
-            <DiaryList data={data} onDelete={onDelete}/>
+            <DiaryList data={data} onDelete={onDelete} onEdit={onEdit}/>
         </div>
     )
 }
