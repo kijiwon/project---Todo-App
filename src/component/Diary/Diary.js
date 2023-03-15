@@ -60,7 +60,7 @@ function Diary () {
         )
     }
     return (
-        <div className="diary-copo">
+        <div className="diary-compo">
             <h1>How do you feel?</h1>
             <div className="options">
                 <p>{state.date}</p>

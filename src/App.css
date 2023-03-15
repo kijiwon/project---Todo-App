@@ -1,0 +1,47 @@
+*{
+    box-sizing: border-box;
+    list-style: none;
+}
+html{
+    font-size: 10px;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(54, 54, 66);
+}
+.App{
+    width: 56rem;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+    margin-top: 10rem;
+    border-radius: 2.5rem;
+}
+.sidebar{
+    width: 15rem;
+    height: inherit;
+    font-size: 2rem;
+    text-align: center;
+    position: fixed;
+    left: 20rem;
+    padding-top: 100px;
+}
+section{
+    display: flex;
+    flex-direction: column;    
+}
+/* react에서는 Link를 a로 인식 */
+a{
+    text-decoration: none;
+    height: 2rem;
+    margin: 1rem;
+}
+.active{
+    color: red;
+}

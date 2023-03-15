@@ -6,7 +6,7 @@ function DiaryItem ({id, date, mood, content, onDelete, onEdit}) {
     const [isEdit,setIsEdit] = useState(false);
     // isEdit의 상태를 변경해주는 함수
     const toggleIsEdit = ()=>setIsEdit(!isEdit)
-    console.log(isEdit)
+    // console.log(isEdit)
     // 수정된 내용을 담을 state
     const [newContent, setNewContent] = useState(content);
     // 수정 취소시에 기존의 content로 돌아가기
