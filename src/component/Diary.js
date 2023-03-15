@@ -22,9 +22,34 @@ function Diary () {
             contentInput.current.focus();
             return;
         }
-        setState(state)
-        console.log(state)
+        onCreate(state.date, state.mood, state.content);
+        setState({
+            mood: 'happy',
+            content:'',
+        })
     }
+
+    const [data, setData] = useState([]);
+    // 일기 아이템의 id
+    const dataId = useRef(0);
+    // 데이터 추가하기
+    const onCreate = (date,mood,content)=>{
+      const newItem = {
+        id : dataId.current,
+        date,
+        mood,
+        content,
+      }
+      dataId.current+=1;
+      setData([newItem,...data])
+      // console.log(data)
+    }
+    // 데이터 삭제
+    const onDelete = (targetId)=>{
+      const newDiaryList = data.filter((item)=> item.id!== targetId)
+      setData(newDiaryList)
+    }
+  
     return (
         <div className="diary-copo">
             <h1>How do you feel?</h1>
@@ -47,7 +72,7 @@ function Diary () {
 
             />
             <button onClick={submitDiary}>저장하기</button>
-            <DiaryList/>
+            <DiaryList data={data} onDelete={onDelete}/>
         </div>
     )
 }

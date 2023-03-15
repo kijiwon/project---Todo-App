@@ -1,9 +1,20 @@
 import React from "react";
-
-function DiaryList () {
+import DiaryItem from "./DiaryItem";
+function DiaryList ({data, onDelete}) {
 
     return(
         <div className="diaryList">
+            <p>{data.length}개</p>
+            {data.map((el)=>{
+                return <DiaryItem 
+                            key={el.id}
+                            id={el.id}
+                            date={el.date} 
+                            mood={el.mood}
+                            content={el.content}
+                            onDelete={onDelete}
+                        />
+            })}
         </div>
     )
 }
