@@ -13,23 +13,23 @@ body{
     background-color: rgb(54, 54, 66);
 }
 .App{
-    width: 56rem;
+    width: 560px;
     height: 500px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     align-items: center;
     background-color: #fff;
     margin-top: 10rem;
     border-radius: 2.5rem;
 }
 .sidebar{
-    width: 15rem;
+    width: 100px;
     height: inherit;
     font-size: 2rem;
     text-align: center;
-    position: fixed;
-    left: 20rem;
+    /* position: fixed;
+    left: 25rem; */
     padding-top: 100px;
 }
 section{
@@ -38,10 +38,17 @@ section{
 }
 /* react에서는 Link를 a로 인식 */
 a{
+    font-weight: 800;
+    color: black;
     text-decoration: none;
-    height: 2rem;
-    margin: 1rem;
+    height: 28px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid black;
 }
 .active{
-    color: red;
+    color: rgb(35, 90, 125);
+}
+.main{
+    width: 460px;
+    text-align: center;
 }

@@ -1,21 +1,24 @@
 import React from "react";
 import DiaryItem from "./DiaryItem";
+import './diary.css'
 function DiaryList ({data, onDelete,onEdit}) {
 
     return(
         <div className="diaryList">
-            <p>{data.length}개</p>
-            {data.map((el)=>{
-                return <DiaryItem 
-                            key={el.id}
-                            id={el.id}
-                            date={el.date} 
-                            mood={el.mood}
-                            content={el.content}
-                            onDelete={onDelete}
-                            onEdit={onEdit}
+            <p className="num">total :{data.length}개</p>
+            <div className="item-compo">
+                {data.map((el)=>{
+                    return <DiaryItem 
+                                key={el.id}
+                                id={el.id}
+                                date={el.date} 
+                                mood={el.mood}
+                                content={el.content}
+                                onDelete={onDelete}
+                                onEdit={onEdit}
                         />
-            })}
+                })}                
+            </div>
         </div>
     )
 }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BsCheckSquare,BsSquare,BsTrashFill, BsPencilSquare} from 'react-icons/bs';
 // import {BiEditAlt} from 'react-icons/bi'
 import {MdDoneOutline} from 'react-icons/md'
+import {ImCancelCircle} from 'react-icons/im'
 
 function TodoItem({item,removeItem,isChecked, onEdit}){
     // 수정 기능
@@ -27,6 +28,7 @@ function TodoItem({item,removeItem,isChecked, onEdit}){
             </div>
             {isEdit? (<>
                         <input 
+                            className="edit-input"
                             value={newContent} 
                             onChange={(e)=>setNewContent(e.target.value)}/></>):
                         <div className={`todo-item ${item.checked ? "checkedItem" : ""}`}  onClick={()=>isChecked(item.id)}>
@@ -35,10 +37,10 @@ function TodoItem({item,removeItem,isChecked, onEdit}){
                             }
             {/* checked상태일시 className추가 */}
             {isEdit? (<>
-                        <button onClick={quitEdit}>취소</button>
-                        <button onClick={saveEdit}>저장</button>
+                        <ImCancelCircle className="btn cancel" onClick={quitEdit}>취소</ImCancelCircle>
+                        <MdDoneOutline className="btn save" onClick={saveEdit}>저장</MdDoneOutline>
                         </>):(
-                            <button onClick={toggleIsEdit}>수정</button>
+                            <BsPencilSquare className="btn edit" onClick={toggleIsEdit}>수정</BsPencilSquare>
                         )}
             {/* <BsPencilSquare className="btn-edit"/>
             <MdDoneOutline className="btn-edit-done" onClick={()=>isChecked(item.id)}/> */}

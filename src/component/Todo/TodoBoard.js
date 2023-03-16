@@ -1,7 +1,8 @@
 import React from "react";
 import TodoList from "./TodoList";
 import { useState, useEffect } from "react";
-import {BsFillPlusCircleFill} from 'react-icons/bs'
+import {BsFillPlusCircleFill} from 'react-icons/bs';
+import './todo.css';
 
 function TodoBoard (){
     // localStorage에 초기값 설정
@@ -59,9 +60,9 @@ function TodoBoard (){
     )
   }
     return(
-        <div className="App">
+        <div className="todo-page">
         <div>
-          <h1>오늘의 할 일</h1>
+          <h1>To do</h1>
         </div>
         <div className='addItem'>
           <input className='inputItem' type="text" value={inputValue} onChange={itemValue}/>

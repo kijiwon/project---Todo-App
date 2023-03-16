@@ -1,0 +1,85 @@
+.todo-page{
+    width: 460px;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 10px 0px;
+}
+h1{
+    font-size: 30px;
+}
+.addItem{
+    width: 220px;
+    /* height: 40px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+input{
+    width: 180px;
+    height: 30px;
+    font-size: 20px;
+}
+.inputBtn{
+    font-size: 20px;
+}
+.todoList{
+    width: 460px;
+    padding: 10px 50px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* align-items: center; */
+    font-size: 16px;
+}
+.itemDate{
+    text-align: end;
+}
+
+.totalItem{
+    text-align: end;
+}
+.remove-all{
+    font-size: 30px;
+    margin-left: 150px;
+    /* position: fixed;
+    left: 630px;
+    bottom: 110px; */
+}
+.todoItemCompo{
+    height: 270px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.todoItemCompo::-webkit-scrollbar {
+    display: none;
+  }
+.todoItem{
+    width: 300px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* align-items: center; */
+    margin-top: 10px;
+}
+.todo-item{
+    margin-right: 60px;
+    text-align: center;
+}
+.edit-input{
+    width: 140px;
+    height: 24px;
+}
+.checkedItem{
+    text-decoration: line-through;
+    color: rgb(146, 146, 146);
+}
+.btn{
+    font-size: 23px;
+}

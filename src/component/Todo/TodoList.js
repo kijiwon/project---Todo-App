@@ -17,8 +17,8 @@ function TodoList ({todoList,removeItem,isChecked, removeAll, onEdit}){
                 isChecked = {isChecked}
                 onEdit={onEdit}
             />)}
-            <CgPlayListRemove onClick={removeAll} className="remove-all"/>
             </div>
+            <CgPlayListRemove onClick={removeAll} className="remove-all"/>
         </div>
     )
 }

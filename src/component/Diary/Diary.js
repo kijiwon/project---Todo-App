@@ -1,5 +1,7 @@
 import React, { useState, useRef } from "react";
 import DiaryList from "./DiaryList";
+import './diary.css'
+import {IoMdAddCircleOutline} from 'react-icons/io'
 function Diary () {
     
     const initialState = {
@@ -28,7 +30,6 @@ function Diary () {
             content:'',
         })
     }
-
     const [data, setData] = useState([]);
     // 일기 아이템의 id
     const dataId = useRef(0);
@@ -61,26 +62,28 @@ function Diary () {
     }
     return (
         <div className="diary-compo">
-            <h1>How do you feel?</h1>
-            <div className="options">
-                <p>{state.date}</p>
-                <select name="mood" value={state.value} onChange={changeState}>
-                    <option value={'happy'}>happy</option>
-                    <option value={'good'}>good</option>
-                    <option value={'soso'}>soso</option>
-                    <option value={'bad'}>bad</option>
-                </select>
-                
-            </div>
-            <textarea 
-                ref={contentInput}
-                type='text' 
-                name='content'
-                value={state.content}
-                onChange={changeState}
+            <div className="header">
+                <h1>How do you feel?</h1>
+                <div className="options">
+                    <p className="date">{initialState.date}</p>
+                    <select name="mood" value={state.value} onChange={changeState}>
+                        <option value={'happy'}>happy</option>
+                        <option value={'good'}>good</option>
+                        <option value={'soso'}>soso</option>
+                        <option value={'bad'}>bad</option>
+                    </select>
+                </div>
+                <textarea 
+                    ref={contentInput}
+                    type='text' 
+                    name='content'
+                    value={state.content}
+                    onChange={changeState}
 
-            />
-            <button onClick={submitDiary}>저장하기</button>
+                />
+                <IoMdAddCircleOutline  className="btn-add" onClick={submitDiary}>저장하기</IoMdAddCircleOutline>                
+            </div>
+
             <DiaryList data={data} onDelete={onDelete} onEdit={onEdit}/>
         </div>
     )
