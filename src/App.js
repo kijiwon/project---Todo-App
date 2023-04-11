@@ -4,11 +4,23 @@ import Diary from './component/Diary/Diary';
 import Sidebar from './component/Sidebar';
 import TodoBoard from './component/Todo/TodoBoard';
 import Main from './component/Main';
+import styled from "styled-components";
+
+let AppComponent = styled.div`
+  width: 560px;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #fff;
+  margin-top: 10rem;
+  border-radius: 2.5rem;
+`;
 function App() {
 
 
   return (
-    <div className="App">
+    <AppComponent>
       <BrowserRouter>
         <Sidebar/>
         <Routes>
@@ -17,7 +29,7 @@ function App() {
           <Route path='/diary' element={<Diary/>}/>
         </Routes>
       </BrowserRouter>
-    </div>
+    </AppComponent>
   );
 }
 

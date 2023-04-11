@@ -12,17 +12,7 @@ body{
     align-items: center;
     background-color: rgb(54, 54, 66);
 }
-.App{
-    width: 560px;
-    height: 500px;
-    display: flex;
-    flex-direction: row;
-    /* justify-content: space-around; */
-    align-items: center;
-    background-color: #fff;
-    margin-top: 10rem;
-    border-radius: 2.5rem;
-}
+
 .sidebar{
     width: 100px;
     height: inherit;
