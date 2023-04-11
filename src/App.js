@@ -3,7 +3,6 @@ import './App.css';
 import Diary from './component/Diary/Diary';
 import Sidebar from './component/Sidebar';
 import TodoBoard from './component/Todo/TodoBoard';
-import Main from './component/Main';
 import styled from "styled-components";
 
 let AppComponent = styled.div`
@@ -15,6 +14,11 @@ let AppComponent = styled.div`
   background-color: #fff;
   margin-top: 10rem;
   border-radius: 2.5rem;
+`;
+
+let MainComponent = styled.div`
+  width: 460px;
+  text-align: center;
 `;
 function App() {
 
@@ -33,4 +37,11 @@ function App() {
   );
 }
 
+const Main =()=> {
+  return (
+      <MainComponent>
+          <h1>ZZIONIE's </h1>
+      </MainComponent>
+  )
+}
 export default App;
