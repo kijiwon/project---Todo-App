@@ -26,7 +26,7 @@ function TodoBoard (){
     if(inputValue.length===0){
       alert('내용을 입력해주세요')
     } else{
-      setTodoList([todo,...todoList])
+      setTodoList([...todoList,todo])
       setInputValue('')
 
     }

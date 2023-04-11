@@ -9,7 +9,7 @@ function TodoItem({item,removeItem,isChecked, onEdit}){
     const [isEdit,setIsEdit] = useState(false);
     const toggleIsEdit = () =>setIsEdit(!isEdit);
 
-    const [newContent,setNewContent] = useState(item.text)
+    const [newContent,setNewContent] = useState(item.text);
     
     const quitEdit = ()=>{
         setIsEdit(false);
@@ -42,8 +42,6 @@ function TodoItem({item,removeItem,isChecked, onEdit}){
                         </>):(
                             <BsPencilSquare className="btn edit" onClick={toggleIsEdit}>수정</BsPencilSquare>
                         )}
-            {/* <BsPencilSquare className="btn-edit"/>
-            <MdDoneOutline className="btn-edit-done" onClick={()=>isChecked(item.id)}/> */}
             <BsTrashFill  className="btn-remove" onClick={()=>removeItem(item.id)}/>
         </div>
     )
