@@ -12,8 +12,9 @@ let TodoItemComponent = styled.div`
     justify-content: space-between;
     margin-top: 10px;
     .todo-item{
-        margin-right: 60px;
+        margin-left: 20px;
         text-align: center;
+        margin-bottom : 5px;
     }
     .edit-input{
         width: 140px;
@@ -27,6 +28,10 @@ let TodoItemComponent = styled.div`
     }
     .btn{
         font-size: 23px;
+    }
+    .edit{
+        margin-left: auto;
+        margin-right: 20px;
     }
 `;
 

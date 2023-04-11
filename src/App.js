@@ -17,8 +17,13 @@ let AppComponent = styled.div`
 `;
 
 let MainComponent = styled.div`
-  width: 600px;
+  width: 460px;
+  height: 360px;
   text-align: center;
+  h1{
+    font-size: 50px;
+    text-shadow: 4px 2px 2px #AAAAAA;
+  }
 `;
 
 let SidebarComponent = styled.div`
@@ -33,15 +38,15 @@ let SidebarComponent = styled.div`
   }
   /* react에서는 Link를 a로 인식 */
   a{
-      font-weight: 800;
-      color: black;
-      text-decoration: none;
-      height: 28px;
-      margin-bottom: 25px;
-      border-bottom: 2px solid black;
+    font-weight: 800;
+    color: black;
+    text-decoration: none;
+    height: 30px;
+    margin-bottom: 25px;
+    border-bottom: 4px solid #AAAAAA;
   }
   .active{
-      color: rgb(209, 18, 18);
+      color: #593939;
   }
 `;
 function App() {
@@ -64,7 +69,7 @@ function App() {
 const Main =()=> {
   return (
       <MainComponent>
-          <h1>ZZIONIE's </h1>
+        <h1>ZZIONIE's </h1>
       </MainComponent>
   )
 };

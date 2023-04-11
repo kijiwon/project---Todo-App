@@ -12,12 +12,15 @@ let TodoListComponent = styled.div`
     font-size: 16px;
     .itemDate{
     text-align: end;
+    font-size: 20px;
+    margin-bottom: 10px;
     }
     .totalItem{
         text-align: end;
+        margin-bottom : 10px;
     }
     .todoItemCompo{
-    height: 350px;
+    height: 320px;
     overflow: scroll;
     display: flex;
     flex-direction: column;
@@ -34,11 +37,12 @@ let TodoListComponent = styled.div`
 `;
 
 function TodoList ({todoList,removeItem,isChecked, removeAll, onEdit}){
+    
     return(
         <TodoListComponent>
             <div className="todoBoard">
                 <div className="itemDate">{new Date().toLocaleDateString()}</div>
-                <div className="totalItem">{`total : ${todoList.length}`}</div>
+                <div className="totalItem">{`total : ${todoList.length}`}</div> 
             </div>
             <div className="todoItemCompo">
                 {todoList.map((item)=> <TodoItem
