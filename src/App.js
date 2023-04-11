@@ -6,18 +6,19 @@ import TodoBoard from './component/Todo/TodoBoard';
 import styled from "styled-components";
 
 let AppComponent = styled.div`
-  width: 560px;
-  height: 500px;
+  width: 660px;
+  height: 600px;
   display: flex;
   flex-direction: row;
   align-items: center;
   background-color: #fff;
   margin-top: 10rem;
   border-radius: 2.5rem;
+  box-shadow: 3px 3px 10px #EEEEEE;
 `;
 
 let MainComponent = styled.div`
-  width: 460px;
+  width: 600px;
   text-align: center;
 `;
 function App() {

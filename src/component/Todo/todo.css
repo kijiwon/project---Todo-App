@@ -53,7 +53,6 @@ input{
     overflow: scroll;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 .todoItemCompo::-webkit-scrollbar {
