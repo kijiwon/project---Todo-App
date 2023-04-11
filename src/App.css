@@ -12,27 +12,3 @@ body{
     align-items: center;
     background-color: #F7F7F7;
 }
-
-.sidebar{
-    width: 100px;
-    height: inherit;
-    font-size: 2rem;
-    text-align: center;
-    padding-top: 100px;
-}
-section{
-    display: flex;
-    flex-direction: column;    
-}
-/* react에서는 Link를 a로 인식 */
-a{
-    font-weight: 800;
-    color: black;
-    text-decoration: none;
-    height: 28px;
-    margin-bottom: 25px;
-    border-bottom: 2px solid black;
-}
-.active{
-    color: rgb(209, 18, 18);
-}
