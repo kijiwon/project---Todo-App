@@ -1,7 +1,38 @@
 import React, { useState, useRef } from "react";
 import DiaryList from "./DiaryList";
-import './diary.css'
-import {IoMdAddCircleOutline} from 'react-icons/io'
+import {IoMdAddCircleOutline} from 'react-icons/io';
+import styled from "styled-components";
+
+let DiaryComponent = styled.div`
+    width: 460px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .header{
+        height: 200px;
+    }
+    .options{
+        width: 300px;
+        height: 30px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .date{
+        font-size: 18px;
+    }
+    textarea{
+        width: 300px;
+        height: 80px;
+        font-size: 16px;
+    }
+    .btn-add{
+        font-size: 24px;
+        margin-left: 10px;
+    }
+`;
 function Diary () {
     
     const initialState = {
@@ -61,7 +92,7 @@ function Diary () {
         )
     }
     return (
-        <div className="diary-compo">
+        <DiaryComponent>
             <div className="header">
                 <h1>How do you feel?</h1>
                 <div className="options">
@@ -85,7 +116,7 @@ function Diary () {
             </div>
 
             <DiaryList data={data} onDelete={onDelete} onEdit={onEdit}/>
-        </div>
+        </DiaryComponent>
     )
 }
 
