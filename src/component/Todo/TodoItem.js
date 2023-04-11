@@ -1,8 +1,34 @@
 import React, { useState } from "react";
 import { BsCheckSquare,BsSquare,BsTrashFill, BsPencilSquare} from 'react-icons/bs';
-// import {BiEditAlt} from 'react-icons/bi'
-import {MdDoneOutline} from 'react-icons/md'
-import {ImCancelCircle} from 'react-icons/im'
+import {MdDoneOutline} from 'react-icons/md';
+import {ImCancelCircle} from 'react-icons/im';
+import styled from "styled-components";
+
+let TodoItemComponent = styled.div`
+    width: 300px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+    .todo-item{
+        margin-right: 60px;
+        text-align: center;
+    }
+    .edit-input{
+        width: 140px;
+        height: 24px;
+        font-size: 18px;
+        padding-top: 0;
+    }
+    .checkedItem{
+        text-decoration: line-through;
+        color: rgb(146, 146, 146);
+    }
+    .btn{
+        font-size: 23px;
+    }
+`;
 
 function TodoItem({item,removeItem,isChecked, onEdit}){
     // 수정 기능
@@ -20,7 +46,7 @@ function TodoItem({item,removeItem,isChecked, onEdit}){
         setIsEdit(false);
     }
     return (
-        <div className="todoItem" key={item.id}>
+        <TodoItemComponent key={item.id}>
             {/* checked=true일 때 checked라는 class를 추가  */}
             <div className={`todoState ('checkbox', { checked })`}>
                 {/* checked=true면 체크된 박스 아이콘이 false면 빈 박스 아이콘이 뜸 */}
@@ -43,7 +69,7 @@ function TodoItem({item,removeItem,isChecked, onEdit}){
                             <BsPencilSquare className="btn edit" onClick={toggleIsEdit}>수정</BsPencilSquare>
                         )}
             <BsTrashFill  className="btn-remove" onClick={()=>removeItem(item.id)}/>
-        </div>
+        </TodoItemComponent>
     )
 }
 export default TodoItem;

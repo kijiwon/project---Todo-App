@@ -1,9 +1,41 @@
 import React from "react";
 import {CgPlayListRemove} from 'react-icons/cg'
 import TodoItem from "./TodoItem";
+import styled from "styled-components";
+
+let TodoListComponent = styled.div`
+    width: 460px;
+    padding: 10px 50px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 16px;
+    .itemDate{
+    text-align: end;
+    }
+    .totalItem{
+        text-align: end;
+    }
+    .todoItemCompo{
+    height: 350px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+    .todoItemCompo::-webkit-scrollbar {
+        display: none;
+    }
+    .remove-all{
+    font-size: 30px;
+    margin-left: 150px;
+    cursor: pointer;
+    }
+`;
+
 function TodoList ({todoList,removeItem,isChecked, removeAll, onEdit}){
     return(
-        <div className="todoList">
+        <TodoListComponent>
             <div className="todoBoard">
                 <div className="itemDate">{new Date().toLocaleDateString()}</div>
                 <div className="totalItem">{`total : ${todoList.length}`}</div>
@@ -19,7 +51,7 @@ function TodoList ({todoList,removeItem,isChecked, removeAll, onEdit}){
             />)}
             </div>
             <CgPlayListRemove onClick={removeAll} className="remove-all"/>
-        </div>
+        </TodoListComponent>
     )
 }
 

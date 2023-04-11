@@ -2,7 +2,36 @@ import React from "react";
 import TodoList from "./TodoList";
 import { useState, useEffect } from "react";
 import {BsFillPlusCircleFill} from 'react-icons/bs';
-import './todo.css';
+import styled from "styled-components";
+
+let TodoComponent = styled.div`
+  width: 460px;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 10px 0px;
+  h1{
+    font-size: 30px;
+  }
+  .addItem{
+    width: 360px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-left : 25px;
+  }
+  input{
+    width: 280px;
+    height: 45px;
+    font-size: 24px;
+    padding-top: 7px;
+  }
+  .inputBtn{
+    font-size: 25px;
+  }
+`;
 
 function TodoBoard (){
     // localStorage에 초기값 설정
@@ -60,7 +89,7 @@ function TodoBoard (){
     )
   }
     return(
-        <div className="todo-page">
+      <TodoComponent>
         <div>
           <h1>To do</h1>
         </div>
@@ -77,7 +106,7 @@ function TodoBoard (){
             onEdit={onEdit}
           />
         </div>
-      </div>
+      </TodoComponent>
     )
 }
 
