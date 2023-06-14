@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef ,useEffect} from "react";
 import DiaryList from "./DiaryList";
 import {IoMdAddCircleOutline} from 'react-icons/io';
 import styled from "styled-components";
@@ -61,9 +61,13 @@ function Diary () {
             content:'',
         })
     }
-    const [data, setData] = useState([]);
+    const diaryData = JSON.parse(localStorage.getItem('diaryData')) || [];
+    const [data, setData] = useState(diaryData);
     // 일기 아이템의 id
     const dataId = useRef(0);
+    useEffect(() => {
+        localStorage.setItem('diaryData', JSON.stringify(data));
+    }, [data]);
     // 데이터 추가하기
     const onCreate = (date,mood,content)=>{
       const newItem = {
