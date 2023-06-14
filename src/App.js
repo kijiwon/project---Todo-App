@@ -54,7 +54,7 @@ function App() {
 
   return (
     <AppComponent>
-      <BrowserRouter>
+      <BrowserRouter basename='/project---Todo-App'>
         <Sidebar/>
         <Routes>
           <Route path='/' element={<Main/>}/>
