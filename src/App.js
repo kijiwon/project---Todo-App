@@ -1,4 +1,4 @@
-import { BrowserRouter,Route, Routes,NavLink } from 'react-router-dom';
+import { HashRouter,Route, Routes,NavLink } from 'react-router-dom';
 import './App.css';
 import Diary from './component/Diary/Diary';
 import TodoBoard from './component/Todo/TodoBoard';
@@ -54,14 +54,14 @@ function App() {
 
   return (
     <AppComponent>
-      <BrowserRouter basename='/project---Todo-App'>
+      <HashRouter basename={process.env.PUBLIC_URL}>
         <Sidebar/>
         <Routes>
           <Route path='/' element={<Main/>}/>
           <Route path='/todo' element={<TodoBoard/>}/>
           <Route path='/diary' element={<Diary/>}/>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </AppComponent>
   );
 }
