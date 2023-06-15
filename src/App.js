@@ -1,4 +1,4 @@
-import { HashRouter,Route, Routes,NavLink } from 'react-router-dom';
+import { Route, Routes,NavLink } from 'react-router-dom';
 import './App.css';
 import Diary from './component/Diary/Diary';
 import TodoBoard from './component/Todo/TodoBoard';
@@ -50,18 +50,14 @@ let SidebarComponent = styled.div`
   }
 `;
 function App() {
-
-
   return (
     <AppComponent>
-      <HashRouter basename={process.env.PUBLIC_URL}>
-        <Sidebar/>
-        <Routes>
-          <Route path='/' element={<Main/>}/>
-          <Route path='/todo' element={<TodoBoard/>}/>
-          <Route path='/diary' element={<Diary/>}/>
-        </Routes>
-      </HashRouter>
+      <Sidebar/>
+      <Routes>
+        <Route path='/' element={<Main/>}/>
+        <Route path='/todo' element={<TodoBoard/>}/>
+        <Route path='/diary' element={<Diary/>}/>
+      </Routes>
     </AppComponent>
   );
 }
