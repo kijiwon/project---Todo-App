@@ -26,6 +26,8 @@ let TodoComponent = styled.div`
     width: 280px;
     height: 45px;
     font-size: 24px;
+    border: 1px solid gray;
+    border-radius: 10px;
     padding-top: 7px;
   }
   .inputBtn{

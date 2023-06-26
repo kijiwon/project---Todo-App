@@ -24,6 +24,8 @@ let DiaryComponent = styled.div`
         font-size: 18px;
     }
     textarea{
+        border: 1px solid gray;
+        border-radius: 10px;
         width: 300px;
         height: 80px;
         font-size: 16px;
