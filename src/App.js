@@ -1,10 +1,17 @@
-import { BrowserRouter ,Route, Routes,NavLink } from 'react-router-dom';
-import './App.css';
+import {Route, Routes,NavLink } from 'react-router-dom';
 import Diary from './component/Diary/Diary';
 import TodoBoard from './component/Todo/TodoBoard';
 import styled from "styled-components";
 
-let AppComponent = styled.div`
+const Body = styled.body`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #F7F7F7;
+`;
+
+const AppComponent = styled.div`
   width: 660px;
   height: 600px;
   display: flex;
@@ -16,7 +23,7 @@ let AppComponent = styled.div`
   box-shadow: 3px 3px 10px #EEEEEE;
 `;
 
-let MainComponent = styled.div`
+const MainComponent = styled.div`
   width: 460px;
   height: 360px;
   text-align: center;
@@ -26,7 +33,7 @@ let MainComponent = styled.div`
   }
 `;
 
-let SidebarComponent = styled.div`
+const SidebarComponent = styled.div`
   width: 100px;
   height: inherit;
   font-size: 2rem;
@@ -36,7 +43,6 @@ let SidebarComponent = styled.div`
     display: flex;
     flex-direction: column;    
   }
-  /* react에서는 Link를 a로 인식 */
   a{
     font-weight: 800;
     color: black;
@@ -49,9 +55,10 @@ let SidebarComponent = styled.div`
       color: #593939;
   }
 `;
+
 function App() {
   return (
-    <BrowserRouter>
+    <Body> 
       <AppComponent>
         <Sidebar/>
         <Routes>
@@ -60,7 +67,7 @@ function App() {
           <Route path='/diary' element={<Diary/>}/>
         </Routes>
       </AppComponent>
-    </BrowserRouter>
+    </Body>
   );
 }
 
