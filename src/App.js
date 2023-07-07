@@ -39,10 +39,6 @@ const SidebarComponent = styled.div`
   font-size: 2rem;
   text-align: center;
   padding-top: 100px;
-  section{
-    display: flex;
-    flex-direction: column;    
-  }
   a{
     font-weight: 800;
     color: black;
@@ -52,8 +48,13 @@ const SidebarComponent = styled.div`
     border-bottom: 4px solid #AAAAAA;
   }
   .active{
-      color: #593939;
+    color: #593939;
   }
+`;
+
+const SideSection = styled.section`
+  display: flex;
+  flex-direction: column;  
 `;
 
 function App() {
@@ -82,11 +83,11 @@ const Main =()=> {
 const Sidebar=()=>{
   return(
       <SidebarComponent>
-          <section>
+          <SideSection>
             <NavLink to='/' activeclassname='active'>Main</NavLink>
             <NavLink to='/todo' activeclassname='active'>Todo</NavLink>
             <NavLink to='/diary' activeclassname='active'>Diary</NavLink>
-          </section>
+          </SideSection>
       </SidebarComponent>
   )
 }

@@ -40,6 +40,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 html {
+	font-family: 'Do Hyeon', sans-serif;
     font-size: 10px;
 	height: 100vh;
 	::-webkit-scrollbar {
