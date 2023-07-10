@@ -4,16 +4,18 @@ import TodoBoard from './component/Todo/TodoBoard';
 import styled from "styled-components";
 
 const Body = styled.body`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #F7F7F7;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F7F7F7;
 `;
 
 const AppComponent = styled.div`
   width: 660px;
   height: 600px;
+  margin-bottom: 40px;
   display: flex;
   flex-direction: row;
   align-items: center;

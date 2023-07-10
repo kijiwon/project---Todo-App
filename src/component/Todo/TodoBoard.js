@@ -6,38 +6,41 @@ import styled from "styled-components";
 
 let TodoComponent = styled.div`
   width: 460px;
-  height: inherit;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 30px 10px 0px;
-  h1{
-    font-size: 30px;
-  }
-  .addItem{
-    width: 360px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    margin-left : 25px;
-  }
-  input{
-    width: 280px;
-    height: 45px;
-    font-size: 24px;
-    border: 1px solid gray;
-    border-radius: 10px;
-    padding-top: 7px;
-  }
-  .inputBtn{
-    font-size: 25px;
+  `;
+const TodoTitle = styled.header`
+  font-size: 30px;
+  margin-bottom: 20px;
+  `;
+
+const AddItem = styled.div`
+  width: 360px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-left : 25px;
+  `;
+
+const InputTodo = styled.input`
+  width: 280px;
+  height: 45px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding-top: 7px;
+  font-size: 18px;
+  padding-left: 16px;
+  :focus{
+    outline: none;
+    border: 1.2px solid gray;
   }
 `;
 
 function TodoBoard (){
-    // localStorage에 초기값 설정
-    // 입력되는 todoList가져오기
   const initialState = JSON.parse(localStorage.getItem('todoList')) || [];
   const [inputValue,setInputValue] = useState('');
   const [todoList,setTodoList] = useState(initialState);
@@ -75,10 +78,7 @@ function TodoBoard (){
   const removeAll = () =>{
     setTodoList([])
   }
-  // 체크박스 동작
-  // 스프레드 연산자로 item이 가지고 있는 모든 속성을 가져오기
-  // checked의 값을 반대로 바꿔줌
-  // else인경우는 그냥 반환
+
   const isChecked = id => {
     setTodoList(todoList=> todoList.map(todo=> todo.id === id?  { ...todo, checked: !todo.checked } : todo))
   }
@@ -92,22 +92,20 @@ function TodoBoard (){
   }
     return(
       <TodoComponent>
-        <div>
+        <TodoTitle>
           <h1>To do</h1>
-        </div>
-        <div className='addItem'>
-          <input className='inputItem' type="text" value={inputValue} onChange={itemValue}/>
-          <BsFillPlusCircleFill className='inputBtn' type='submit' onClick={addItem}/>
-        </div>
-        <div className='component'>
-          <TodoList 
-            todoList={todoList}
-            removeItem = {removeItem}  
-            isChecked = {isChecked}
-            removeAll={removeAll}
-            onEdit={onEdit}
-          />
-        </div>
+        </TodoTitle>
+        <AddItem>
+          <InputTodo className='inputItem' type="text" value={inputValue} onChange={itemValue}/>
+          <BsFillPlusCircleFill size={"25px"} type='submit' onClick={addItem}/>
+        </AddItem>
+        <TodoList 
+          todoList={todoList}
+          removeItem = {removeItem}  
+          isChecked = {isChecked}
+          removeAll={removeAll}
+          onEdit={onEdit}
+        />
       </TodoComponent>
     )
 }
