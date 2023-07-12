@@ -3,19 +3,20 @@ import TodoList from "./TodoList";
 import { useState, useEffect } from "react";
 import {BsFillPlusCircleFill} from 'react-icons/bs';
 import styled from "styled-components";
+import { useRef } from "react";
 
 let TodoComponent = styled.div`
-  width: 460px;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 30px 10px 0px;
-  `;
+`;
+
 const TodoTitle = styled.header`
   font-size: 30px;
   margin-bottom: 20px;
-  `;
+`;
 
 const AddItem = styled.div`
   width: 360px;
@@ -24,7 +25,7 @@ const AddItem = styled.div`
   justify-content: space-around;
   align-items: center;
   margin-left : 25px;
-  `;
+`;
 
 const InputTodo = styled.input`
   width: 280px;
@@ -35,8 +36,7 @@ const InputTodo = styled.input`
   font-size: 18px;
   padding-left: 16px;
   :focus{
-    outline: none;
-    border: 1.2px solid gray;
+    outline: 1.5px solid gray;
   }
 `;
 
@@ -56,9 +56,13 @@ function TodoBoard (){
     checked : false,
     edit_mode : false
   }
+
+  const todoContent = useRef();
+
   const addItem= () =>{
     if(inputValue.length===0){
-      alert('내용을 입력해주세요')
+      todoContent.current.focus();
+      return;
     } else{
       setTodoList([...todoList,todo])
       setInputValue('')
@@ -66,7 +70,6 @@ function TodoBoard (){
     }
   }
 
-  // 입력된 값 가져오기
   const itemValue = (envnt) =>{
     setInputValue(envnt.target.value)
   }
@@ -96,7 +99,7 @@ function TodoBoard (){
           <h1>To do</h1>
         </TodoTitle>
         <AddItem>
-          <InputTodo className='inputItem' type="text" value={inputValue} onChange={itemValue}/>
+          <InputTodo ref={todoContent} type="text" value={inputValue} onChange={itemValue}/>
           <BsFillPlusCircleFill size={"25px"} type='submit' onClick={addItem}/>
         </AddItem>
         <TodoList 

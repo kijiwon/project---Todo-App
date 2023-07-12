@@ -20,8 +20,8 @@ const AppComponent = styled.div`
   flex-direction: row;
   align-items: center;
   background-color: #fff;
-  margin-top: 10rem;
-  border-radius: 2.5rem;
+  margin-top: 100px;
+  border-radius: 25px;
   box-shadow: 3px 3px 10px #EEEEEE;
 `;
 
