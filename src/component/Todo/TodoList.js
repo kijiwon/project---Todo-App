@@ -55,7 +55,7 @@ function TodoList ({todoList,removeItem,isChecked, removeAll, onEdit}){
         <TodoListComponent>
             <TodoListHeader>
                 <Today>{new Date().toLocaleDateString()}</Today>
-                <TotalTodo>{`total : ${todoList.length}`}</TotalTodo> 
+                <TotalTodo>total : {todoList.length}</TotalTodo> 
             </TodoListHeader>
             <TodoItems>
                 {todoList.map((item)=> <TodoItem

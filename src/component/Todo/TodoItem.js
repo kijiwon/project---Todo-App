@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import React, { useState } from "react";
 import { BsCheckSquare,BsSquare,BsTrashFill, BsPencilSquare} from 'react-icons/bs';
 import {MdDoneOutline} from 'react-icons/md';
@@ -10,29 +11,35 @@ let TodoItemComponent = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     margin-top: 10px;
-    .todo-item{
-        margin-left: 20px;
-        text-align: center;
-        margin-bottom : 5px;
-    }
-    .edit-input{
-        width: 140px;
-        height: 24px;
-        font-size: 18px;
-        padding-top: 0;
-    }
-    .checkedItem{
-        text-decoration: line-through;
-        color: rgb(146, 146, 146);
-    }
-    .btn{
-        font-size: 23px;
-    }
     .edit{
         margin-left: auto;
         margin-right: 20px;
     }
+`;
+const CheckBox = styled.div`
+`;
+
+const InputEdit = styled.input`
+    width: 140px;
+    height: 24px;
+    font-size: 18px;
+    padding-top: 0;
+    border-bottom : 1px solid gray;
+    :focus{
+        outline: none;
+    }
+`;
+
+const ItemContent = styled.p`
+    text-align: center;
+    margin: 5px 0px 5px 20px;
+    ${props => props.checked?
+    `
+    text-decoration: line-through; 
+    color: rgb(146, 146, 146);
+    `:''}
 `;
 
 function TodoItem({item,removeItem,isChecked, onEdit}){
@@ -51,26 +58,26 @@ function TodoItem({item,removeItem,isChecked, onEdit}){
     }
     return (
     <TodoItemComponent key={item.id}>
-        <div>
+        <CheckBox>
             {item.checked ? <BsCheckSquare/> : <BsSquare/>}
-        </div>
+        </CheckBox>
+        {isEdit? (
+                <InputEdit
+                    value={newContent} 
+                    onChange={(e)=>setNewContent(e.target.value)}
+                />)
+                :
+                <ItemContent checked={item.checked} onClick={()=>isChecked(item.id)}>
+                    {item.text}
+                </ItemContent>
+        }
         {isEdit? (<>
-                    <input 
-                        className="edit-input"
-                        value={newContent} 
-                        onChange={(e)=>setNewContent(e.target.value)}/></>):
-                    <div className={`todo-item ${item.checked ? "checkedItem" : ""}`}  onClick={()=>isChecked(item.id)}>
-                        {item.text}
-                    </div>
-                        }
-        {/* checked상태일시 className추가 */}
-        {isEdit? (<>
-                    <ImCancelCircle className="btn cancel" onClick={quitEdit}>취소</ImCancelCircle>
-                    <MdDoneOutline className="btn save" onClick={saveEdit}>저장</MdDoneOutline>
+                    <ImCancelCircle size={'20px'} onClick={quitEdit}>취소</ImCancelCircle>
+                    <MdDoneOutline size={'20px'} onClick={saveEdit}>저장</MdDoneOutline>
                     </>):(
-                        <BsPencilSquare className="btn edit" onClick={toggleIsEdit}>수정</BsPencilSquare>
+                        <BsPencilSquare size={'20px'} className="edit" onClick={toggleIsEdit}>수정</BsPencilSquare>
                     )}
-        <BsTrashFill  className="btn-remove" onClick={()=>removeItem(item.id)}/>
+        <BsTrashFill  size={'20px'} onClick={()=>removeItem(item.id)}/>
     </TodoItemComponent>
     )
 }
